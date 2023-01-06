@@ -39,7 +39,11 @@
 //
 // Z Probe must be this pin
 //
-#define Z_MIN_PROBE_PIN                     PA8  // PROBE
+#if ENABLED(HAS_BLTOUCH)
+  #define SERVO0_PIN                          PA8
+#else
+  #define Z_MIN_PROBE_PIN                     PA8  // PROBE
+#endif
 
 //
 // Temperature Sensors
@@ -66,6 +70,10 @@
 #define E0_STEP_PIN                         PB10
 #define E0_DIR_PIN                          PB1
 
+#define E1_ENABLE_PIN                       PC5
+#define E1_STEP_PIN                         PC4
+#define E1_DIR_PIN                          PA4
+
 
 //
 // LED
@@ -85,7 +93,7 @@
 //
 #define HEATER_0_PIN                        PA6    // "HE"
 #define HEATER_BED_PIN                      PA5    // "HB"
-#define FAN_PIN                             PA7    // FAN1
+#define FAN_PIN                             PB0    //PA7    // FAN1
 
 //
 // Filament Runout Sensor
